@@ -10,18 +10,24 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       gg-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";  # Adjust for your system architecture
+        system = "x86_64-linux";
         modules = [
-          ./configuration.nix  # Your main NixOS config file
+          ./configuration.nix  # Main NixOS config file
           home-manager.nixosModules.home-manager  # Home Manager module
           {
             home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.grant = import ./home.nix;
 	  }
+	];
+      };
+      gg-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+	modules = [
+	  ./configuration.nix
 	];
       };
     };
