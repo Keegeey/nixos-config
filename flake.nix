@@ -2,23 +2,21 @@
   description = "NixOS configuration with Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";  # Adjust to your NixOS release
-    #home-manager.url = "github:nix-community/home-manager/release-24.11";  # Match NixOS release
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11"; # Latest stable release
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: 
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
     nixosConfigurations = {
-      gg-nixos = lib.nixosSystem {
+      # Virtual Machine config
+      gg-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix  # Main NixOS config file
@@ -30,8 +28,9 @@
 	  }
 	];
       };
+      # TODO: Install this shit on my laptop
       gg-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
 	modules = [
 	  ./configuration.nix
 	];
@@ -39,7 +38,7 @@
     };
     homeConfigurations = {
       gg-nixos = home-manager.lib.homeManagerConfiguration {
-        
+
       };
     };
   };
