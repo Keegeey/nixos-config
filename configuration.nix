@@ -76,21 +76,21 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
-    neovim
+    vim # text editor
+    neovim # better text editor
     wget
     i3 # i3
     i3status # i3 - stuff on taskbar
     rofi # i3 - launcher
     feh # i3 - wallpaper
     polybar # i3 - taskbar
-    picom # i3 - idk
+    picom # i3 - compositor? wtf is even that
     dunst # i3 - notifications
-    stow
-    firefox
-    vscode
-    obsidian
-    gcc
+    stow # dotfile symlinks
+    firefox # browser i hardly know er
+    vscode # ide
+    obsidian # notes
+    gcc # gnu compiler collection
     # nerd-fonts.fira-code
     # mullvad-vpn
     # sassc
@@ -101,7 +101,7 @@
     # p7zip
     # protontricks
     # gnome.zenity
-    xfce.thunar
+    xfce.thunar # file explorer
     xfce.thunar-archive-plugin
     # nwg-look
     # gnome.gnome-boxes
@@ -131,15 +131,14 @@
     # zathura # Hyprland
     # rofi-wayland #Hyprland
     # swaylock-effects # Hyprland
-    # ungoogled-chromium
-    fastfetch
+    fastfetch # showoff
     # micro
     # steamtinkerlaunch
     # heroic
     # lutris
     # gedit
     # gnome.gnome-terminal
-    git
+    git # version control
     cmake
     meson
     # vim-full

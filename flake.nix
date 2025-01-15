@@ -2,10 +2,10 @@
   description = "NixOS configuration with Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";  # Adjust to your NixOS release
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";  # Adjust to your NixOS release
     #home-manager.url = "github:nix-community/home-manager/release-24.11";  # Match NixOS release
-    home-manager-unstable = {
-      url = "github:nix-community/home-manager/release-24.11";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
