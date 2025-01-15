@@ -10,10 +10,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: 
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
     nixosConfigurations = {
-      gg-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      gg-nixos = lib.nixosSystem {
+        inherit system;
         modules = [
           ./configuration.nix  # Main NixOS config file
           home-manager.nixosModules.home-manager  # Home Manager module
@@ -29,6 +35,11 @@
 	modules = [
 	  ./configuration.nix
 	];
+      };
+    };
+    homeConfigurations = {
+      gg-nixos = home-manager.lib.homeManagerConfiguration {
+        
       };
     };
   };

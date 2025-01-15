@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  # Don't touch
   home.stateVersion = "24.11";
+  
   home.username = "grant";
   home.homeDirectory = "/home/grant";
 
