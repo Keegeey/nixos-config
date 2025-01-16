@@ -5,11 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      /etc/nixos/hardware-configuration.nix
-      # ./hyprland.nix
-    ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

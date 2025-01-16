@@ -20,6 +20,7 @@
         inherit system;
         modules = [
           ./configuration.nix  # Main NixOS config file
+	  /etc/nixos/hardware-configuration.nix # Machine generated hardware config
           home-manager.nixosModules.home-manager  # Home Manager module
           {
             home-manager.useGlobalPkgs = true;
