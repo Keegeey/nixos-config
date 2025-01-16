@@ -5,15 +5,8 @@
 { config, pkgs, ... }:
 
 {
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
-
-  networking.hostName = "gg-nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -149,6 +142,7 @@
   
   fonts.packages = with pkgs; [
     # nerd-fonts.fira-code
+    # nerd-fonts-meslo-lg
   ];
 
   environment.variables = {

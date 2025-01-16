@@ -5,7 +5,9 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [ 
+      (modulesPath + "/profiles/qemu-guest.nix")
+      ./configuration.nix
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
@@ -28,4 +30,13 @@
   # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  ### Stuff originally from configuration.nix
+
+  networking.hostName = "gg-nixos";
+
+  # Bootloader
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 }
