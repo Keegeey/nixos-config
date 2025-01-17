@@ -28,6 +28,12 @@
 	        }
 	      ];
       };
+      gg-desktop-vm = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./gg-desktop-vm.nix # Host config
+        ];
+      };
       # TODO: Install this shit on my laptop
       gg-laptop = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -36,11 +42,11 @@
 	      ];
       };
     };
-    homeConfigurations = {
-      gg-nixos = home-manager.lib.homeManagerConfiguration {
-
-      };
-    };
+    # homeConfigurations = {
+      # gg-nixos = home-manager.lib.homeManagerConfiguration {
+      #
+      # };
+    # };
   };
 }
 
