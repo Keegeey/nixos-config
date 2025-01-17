@@ -19,21 +19,21 @@
       gg-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./gg-nixos.nix  # Main NixOS config file
+          ./gg-nixos.nix  # Host config
           home-manager.nixosModules.home-manager  # Home Manager module
           {
             home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.grant = import ./home.nix;
-	  }
-	];
+	          home-manager.useUserPackages = true;
+	          home-manager.users.grant = import ./home.nix;
+	        }
+	      ];
       };
       # TODO: Install this shit on my laptop
       gg-laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-	modules = [
-	  ./configuration.nix
-	];
+	      modules = [
+	        ./configuration.nix # TODO: Maybe not
+	      ];
       };
     };
     homeConfigurations = {

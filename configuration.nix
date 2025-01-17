@@ -138,6 +138,7 @@
     # gradience
     # latte-dock
     python3
+    #nerd-fonts-meslo
   ];
   
   fonts.packages = with pkgs; [
