@@ -2,14 +2,14 @@
 
 {
     environment.systemPackages = with pkgs; [
-        i3 # i3
-        i3status # i3 - stuff on taskbar
+        i3 # Window manager
+        i3status # Taskbar status info
         alacritty # Terminal
-        rofi # i3 - launcher
-        feh # i3 - wallpaper
-        polybar # i3 - taskbar
-        picom # i3 - compositor? wtf is even that
-        dunst # i3 - notifications
+        rofi # Program launcher
+        feh # Wallpaper setter
+        polybar # Taskbar
+        picom # Compositor
+        dunst # Notifications
     ];
 
     services.xserver.enable = true;

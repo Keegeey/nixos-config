@@ -76,6 +76,8 @@
     obsidian
     fastfetch
     mullvad-vpn
+    discord
+    virt-manager
     lxappearance # idk
     wget # idk
 
