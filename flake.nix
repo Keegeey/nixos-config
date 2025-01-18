@@ -15,18 +15,31 @@
     in
     {
     nixosConfigurations = {
-      # Virtual Machine config
+      # Original virtual machine
       gg-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./gg-nixos.nix  # Host config
-          home-manager.nixosModules.home-manager  # Home Manager module
+          ./gg-nixos.nix
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-	          home-manager.useUserPackages = true;
-	          home-manager.users.grant = import ./home.nix;
-	        }
-	      ];
+	    home-manager.useUserPackages = true;
+	    home-manager.users.grant = import ./home.nix;
+	  }
+	];
+      };
+      # Clone virtual machine
+      gg-nixos2 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./gg-nixos2.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.grant = import ./home.nix;
+          }
+        ];
       };
       # TODO: Install this shit on my laptop
       gg-laptop = nixpkgs.lib.nixosSystem {
