@@ -83,6 +83,7 @@
     wget # idk
     qimgv
     samba
+    gnome-themes-extra  # Includes the Adwaita theme
 
     # TODO: Google these
     # sassc
@@ -130,6 +131,7 @@
 
   environment.variables = {
     TERMINAL = "alacritty";
+    GTK_THEME = "Adwaita:dark";
   };
 
   # This value determines the NixOS release from which the default
