@@ -120,9 +120,12 @@
     # latte-dock
   ];
   
+  # Special icons for terminal theme
   fonts.packages = with pkgs; [
-    # nerd-fonts.fira-code
-    # nerd-fonts-meslo-lg
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   environment.variables = {
