@@ -84,6 +84,7 @@
     qimgv
     samba
     gnome-themes-extra  # Includes the Adwaita theme
+    godot_4
 
     # TODO: Google these
     # sassc
