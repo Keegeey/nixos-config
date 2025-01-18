@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+    # TODO: Probably missing some things
     environment.systemPackages = with pkgs; [
         # Hyprland
         # libsForQt5.dolphin
@@ -19,6 +20,5 @@
         # eww # Hyprland
     ];
 
-    # TODO: Probably missing some things
-    # programs.hyprland.enable = true;
+    programs.hyprland.enable = true;
 }

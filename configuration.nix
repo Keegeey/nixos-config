@@ -76,10 +76,13 @@
     obsidian
     fastfetch
     mullvad-vpn
+    spotify
     discord
     virt-manager
     lxappearance # idk
     wget # idk
+    qimgv
+    samba
 
     # TODO: Google these
     # sassc
