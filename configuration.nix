@@ -64,81 +64,86 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # text editor
-    neovim # better text editor
-    wget
+    firefox
+    git
+    vim
+    neovim
     i3 # i3
     i3status # i3 - stuff on taskbar
+    alacritty # Terminal
     rofi # i3 - launcher
     feh # i3 - wallpaper
     polybar # i3 - taskbar
     picom # i3 - compositor? wtf is even that
     dunst # i3 - notifications
     stow # dotfile symlinks
-    firefox # browser i hardly know er
-    vscode # ide
-    obsidian # notes
-    gcc # gnu compiler collection
-    # nerd-fonts.fira-code
+    gcc
+    gnumake
+    cmake
+    meson
+    python3
+    xfce.thunar # file explorer
+    xfce.thunar-archive-plugin
+    vscode
+    obsidian
+    fastfetch
+
+    lxappearance # idk
+    wget # idk
+    
     # mullvad-vpn
+
+    # TODO: Google these
     # sassc
     # conky
-    # xfce.xfce4-settings
     # adw-gtk3
     # brillo
     # p7zip
     # protontricks
     # gnome.zenity
-    xfce.thunar # file explorer
-    xfce.thunar-archive-plugin
     # nwg-look
-    # gnome.gnome-boxes
     # vinegar
     # xarchive
     # xarchiver
     # pavucontrol
+
+    # wine # Wine Staging better cuz 9.0
+    # wine-staging
+
+    # Hyprland
     # libsForQt5.dolphin
     # libsForQt5.qtstyleplugin-kvantum # Hyprland?
     # hyprpaper # Very Hyprland
     # pywal # Hyprland
-    lxappearance # Hyprland
     # pamixer # Hyprland
     # wofi # Hyprland
     # kitty # Hyprland
     # waybar # Hyprland
-    # gnome.gnome-disk-utility
-    # networkmanagerapplet
-    # gnome.gnome-software
-    # wine-staging
     # flameshot # Hyprland
-    # gnome.gnome-tweaks
-    # wine # Wine Staging better cuz 9.0
-    # python311Packages.pip
-    alacritty # Terminal
     # cliphist # Hyprland
     # zathura # Hyprland
     # rofi-wayland #Hyprland
     # swaylock-effects # Hyprland
-    fastfetch # showoff
+    # eww # Hyprland
+
+    # gnome.gnome-boxes
+    # gnome.gnome-disk-utility
+    # gnome.gnome-terminal
+    # gnome.gnome-tweaks
+    # python311Packages.pip
+    # networkmanagerapplet
+    # gnome.gnome-software
     # micro
     # steamtinkerlaunch
     # heroic
     # lutris
     # gedit
-    # gnome.gnome-terminal
-    git # version control
-    cmake
-    meson
     # vim-full
-    gnumake
     # starship
     # gamemode
-    # eww # Hyprland
     # mangohud
     # gradience
     # latte-dock
-    python3
-    #nerd-fonts-meslo
   ];
   
   fonts.packages = with pkgs; [
@@ -150,6 +155,7 @@
     TERMINAL = "alacritty";
   };
 
+  # TODO: Maybe later
   # programs.hyprland.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
