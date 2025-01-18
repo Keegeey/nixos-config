@@ -12,6 +12,9 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgsUnstable = nixpkgs-unstable {
+        inherit system;
+      };
     in
     {
     nixosConfigurations = {
@@ -23,10 +26,10 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.grant = import ./home.nix;
-	  }
-	];
+            home-manager.useUserPackages = true;
+            home-manager.users.grant = import ./home.nix;
+          }
+        ];
       };
       # Clone virtual machine
       gg-nixos2 = nixpkgs.lib.nixosSystem {
